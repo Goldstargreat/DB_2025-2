@@ -44,6 +44,28 @@ ADD 가입날짜 DATE;
 --테이블 삭제 
 ALTER TABLE 고객 
                 DROP COLUMN 가입날짜;
+                
+-- 테이블 변경: 체크 제약조건의 추가
+ALTER TABLE 고객 
+                ADD CONSTRAINT CHECK_AGE CHECK(나이 >= 20);
+                
+-- 테이블 변경: 체크 제약 조건 삭제
+ALTER table 고객
+                drop CONSTRAINT CHECK_AGE;
 
+--테이블 삭제 
+drop TABLE 배송업체;
 
+-- DML(데이터 조작어)
 
+-- 고객 테이블에 행 삽입 (추가) 
+INSERT INTO 고객 VALUES('apple', '정소화', 20, 'gold', '학생', 1000);
+INSERT INTO 고객 VALUES('banana', '김선우', 25, 'vip', '간호사', 2500);
+INSERT INTO 고객 VALUES('carrot', '고명서', 28, 'gold', '교사', 4500);
+INSERT INTO 고객 VALUES('orange', '김용욱', 22, 'silver', '학생', 0);
+INSERT INTO 고객 VALUES('melon', '성원용', 35, 'gold', '회사원', 5000);
+INSERT INTO 고객(고객아이디, 고객이름, 등급, 직업, 적립금) VALUES('peach', '오형준', 'gold', '교사', 4500);
+INSERT INTO 고객 VALUES('pear', '최광주', 31, 'silver', '회사원', 500);
+
+-- 고객 테이블의 전체 행을 조회(검색)
+SELECT * FROM 고객;
